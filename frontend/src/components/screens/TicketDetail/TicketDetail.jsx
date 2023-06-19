@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 
 const TicketDetail = () => {
   const AUTH_TOKEN =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDY0MDQyNWJmYzhhOWVjNjEwOTFmOTIiLCJpYXQiOjE2ODQyNzYyNjEsImV4cCI6MTY4Njg2ODI2MX0.wRuL_E1tfgkIAr1KzwFSCnLRbBjd9nbxYGS-xJIbYRM";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhkNDlkMTkwZGUxNzRjYzc0MDM5NGQiLCJpYXQiOjE2ODY5ODEwNzQsImV4cCI6MTY4OTU3MzA3NH0.rtEVD5Eb6a9I6vDxPSlwDeezj-vnDh7FiDpBBmLiS0Q";
 
   axios.defaults.baseURL = "http://37.220.85.199:4444";
   axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
@@ -52,6 +52,8 @@ const TicketDetail = () => {
       <Link to="/"><Button>Back</Button></Link>
       {/* <TicketItem id={ticket._id} title={ticket.title}></TicketItem> */}
       <TicketItem ticket={ticket} />
+      <TextField className={styles.field} label="Введите ответ" fullWidth />
+      <Button></Button>
     </div>
   );
 
