@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const server = "37.220.85.199";
+const server = "lsdev.tw1.ru";
 const localhost = "localhost";
 
 const token =

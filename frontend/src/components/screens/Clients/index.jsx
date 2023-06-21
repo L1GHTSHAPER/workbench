@@ -14,7 +14,8 @@ export const Clients = () => {
   return (
     <>
       <Header />
-      <input type="text" placeholder="Поиск"></input>
+      {/* <input type="text" placeholder="Поиск"></input> */}
+      <TextField className={styles.field} label="Поиск" />
       <Paper classes={{root: styles.root}}>
         <div>Иванов Иван Иванович</div>
         <div>id: 324524</div>

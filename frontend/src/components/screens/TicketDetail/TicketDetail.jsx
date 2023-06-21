@@ -7,7 +7,12 @@ import { TicketService } from "../../../services/ticket.service";
 import TicketItem from "../home/ticket-item/TicketItem";
 import { Header } from "../../Header/Header";
 
+import styles from "./TicketDetail.module.scss";
 import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
+import Paper from '@mui/material/Paper';
+
+
 
 const TicketDetail = () => {
   const AUTH_TOKEN =
@@ -15,15 +20,15 @@ const TicketDetail = () => {
 
   axios.defaults.baseURL = "http://37.220.85.199:4444";
   axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
-   //const { id } = useParams();
-   console.log(useParams());
+
+  console.log(useParams());
   // const { _id } = useParams();
   const { id } = useParams();
   const [ticket, setTicket] = useState({});
   console.log(id);
 
   React.useEffect(() => {
-    
+
     axios
       .get(`tickets/${id}`)
       .then((res) => {
@@ -34,7 +39,7 @@ const TicketDetail = () => {
         console.warn(err);
         alert("Error getting tickets from server " + id);
       });
-      
+
   }, [id]);
 
   if (!ticket?.description)
@@ -49,11 +54,15 @@ const TicketDetail = () => {
   return (
     <div>
       <Header />
-      <Link to="/"><Button>Back</Button></Link>
-      {/* <TicketItem id={ticket._id} title={ticket.title}></TicketItem> */}
-      <TicketItem ticket={ticket} />
-      <TextField className={styles.field} label="Введите ответ" fullWidth />
-      <Button></Button>
+      <Link to="/"><Button variant="contained">Back</Button></Link>
+      <Paper classes={{ root: styles.root }}>
+        {/* <TicketItem id={ticket._id} title={ticket.title}></TicketItem> */}
+        <TicketItem ticket={ticket} />
+        {/* <TextField className={styles.field} label="Введите ответ" fullWidth /> */}
+        <TextField className={styles.field} label="Введите ответ" />
+        <a href="/"><Button className={styles.button} size="large" variant="contained">Отправить ответ</Button></a>
+      </Paper>
+
     </div>
   );
 
